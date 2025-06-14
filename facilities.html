@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>施設案内 - ワンワン・フォレストキャンプ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        html { scroll-behavior: smooth; } body { font-family: 'Noto Sans JP', sans-serif; } .section-title { text-align: center; margin-bottom: 2rem; font-weight: 900; font-size: 2.25rem; letter-spacing: 0.1em; color: #556B2F; } #chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 1000; } #chat-bubble { width: 60px; height: 60px; background-color: #556B2F; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: transform 0.2s; } #chat-bubble:hover { transform: scale(1.1); } #chat-window { position: fixed; bottom: 90px; right: 20px; width: 90%; max-width: 400px; height: 70%; max-height: 600px; background-color: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; overflow: hidden; transform: scale(0.95); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease; transform-origin: bottom right; pointer-events: none; } #chat-window.open { transform: scale(1); opacity: 1; pointer-events: auto; } #chat-header { background-color: #556B2F; color: white; padding: 1rem; font-weight: bold; display: flex; justify-content: space-between; align-items: center; } #chat-messages { flex-grow: 1; padding: 1rem; overflow-y: auto; background-color: #F5F5DC; } .chat-message { display: flex; max-width: 85%; padding: 0.5rem 1rem; border-radius: 15px; margin-bottom: 0.5rem; line-height: 1.5; } .user-message { background-color: #CD853F; color: white; margin-left: auto; } .ai-message { background-color: #FFFFFF; color: #333; } #chat-form { display: flex; padding: 1rem; border-top: 1px solid #ddd; background-color: #fff; } #chat-input { flex-grow: 1; border: 1px solid #ccc; border-radius: 20px; padding: 0.5rem 1rem; outline: none; } #chat-submit { background-color: #556B2F; color: white; border: none; border-radius: 50%; width: 40px; height: 40px; margin-left: 0.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    </style>
+</head>
+<body class="bg-[#F5F5DC]">
+    <header id="header" class="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-[#556B2F]">ワンワン・フォレストキャンプ</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="facilities.html" class="text-gray-600 hover:text-[#8B4513] transition font-bold text-[#8B4513]">施設案内</a>
+                <a href="pricing.html" class="text-gray-600 hover:text-[#8B4513] transition">ご利用料金</a>
+                <a href="access.html" class="text-gray-600 hover:text-[#8B4513] transition">アクセス・予約</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden"><i data-lucide="menu"></i></button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="facilities.html" class="block py-2 text-gray-600 font-bold">施設案内</a>
+            <a href="pricing.html" class="block py-2 text-gray-600">ご利用料金</a>
+            <a href="access.html" class="block py-2 text-gray-600">アクセス・予約</a>
+        </div>
+    </header>
+    <main>
+        <div class="bg-white py-12">
+            <div class="container mx-auto px-6">
+                 <h2 class="section-title pt-12">FACILITIES</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-[#F5F5DC] rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="広々とした芝生のドッグランで遊ぶ犬" class="w-full h-48 object-cover">
+                        <div class="p-6"><h3 class="text-xl font-bold text-[#556B2F] mb-2">全面天然芝のドッグラン</h3><p class="text-gray-700">小型犬から大型犬まで、思いっきり走り回れる広々としたドッグランを完備。ワンちゃんの足に優しい天然芝です。</p></div>
+                    </div>
+                    <div class="bg-[#F5F5DC] rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://images.pexels.com/photos/2625032/pexels-photo-2625032.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="緑に囲まれたテントサイト" class="w-full h-48 object-cover">
+                        <div class="p-6"><h3 class="text-xl font-bold text-[#556B2F] mb-2">ドッグフェンス付きサイト</h3><p class="text-gray-700">各サイトは柵で囲まれているので、ノーリードでワンちゃんと一緒にプライベートな時間を過ごせます。</p></div>
+                    </div>
+                    <div class="bg-[#F5F5DC] rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="木のぬくもりがあるコテージの内部" class="w-full h-48 object-cover">
+                        <div class="p-6"><h3 class="text-xl font-bold text-[#556B2F] mb-2">愛犬と泊まれるコテージ</h3><p class="text-gray-700">キャンプ初心者でも安心。冷暖房完備の快適なコテージで、ワンちゃんと一緒にのんびりお過ごしください。</p></div>
+                    </div>
+                    <div class="bg-[#F5F5DC] rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://images.pexels.com/photos/4588035/pexels-photo-4588035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="犬をシャワーで洗っている様子" class="w-full h-48 object-cover">
+                        <div class="p-6"><h3 class="text-xl font-bold text-[#556B2F] mb-2">ワンちゃん用温水シャワー</h3><p class="text-gray-700">たくさん遊んで汚れても大丈夫。ワンちゃん専用の温水シャワーとドライヤースペースを完備しています。</p></div>
+                    </div>
+                    <div class="bg-[#F5F5DC] rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://images.pexels.com/photos/1482803/pexels-photo-1482803.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="家族で楽しむBBQ" class="w-full h-48 object-cover">
+                        <div class="p-6"><h3 class="text-xl font-bold text-[#556B2F] mb-2">屋根付きBBQスペース</h3><p class="text-gray-700">雨の日でも安心の屋根付きBBQスペース。食材セットもご用意可能なので、手ぶらでも楽しめます。</p></div>
+                    </div>
+                    <div class="bg-[#F5F5DC] rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="テラス席のあるカフェ" class="w-full h-48 object-cover">
+                        <div class="p-6"><h3 class="text-xl font-bold text-[#556B2F] mb-2">ドッグカフェ併設</h3><p class="text-gray-700">ワンちゃん用のメニューもご用意。飼い主様もワンちゃんも、一緒にリラックスタイムをお楽しみください。</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-[#556B2F] text-white">
+        <div class="container mx-auto py-8 px-6 text-center"><p>&copy; 2025 ワンワン・フォレストキャンプ. All Rights Reserved.</p></div>
+    </footer>
+    <div id="chat-widget"><!-- Chatbot HTML is loaded via JS --></div>
+    <script>
+        // All JavaScript here is the same as index.html
+        // For brevity, it is assumed the full script from index.html is copied here.
+        lucide.createIcons();
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('#mobile-menu a').forEach(link => { link.addEventListener('click', () => mobileMenu.classList.add('hidden')); });
+        const chatWidgetContainer = document.getElementById('chat-widget');
+        chatWidgetContainer.innerHTML = `<div id="chat-window"><div id="chat-header"><span>AIキャンプ場ガイド</span><button id="close-chat"><i data-lucide="x"></i></button></div><div id="chat-messages"><div class="chat-message ai-message">こんにちは！ワンワン・フォレストキャンプへようこそ。ご不明な点は何でも聞いてくださいね。</div></div><form id="chat-form"><input type="text" id="chat-input" placeholder="メッセージを入力..." autocomplete="off"><button type="submit" id="chat-submit"><i data-lucide="send"></i></button></form></div><div id="chat-bubble"><i data-lucide="message-circle" class="text-white w-8 h-8"></i></div>`;
+        lucide.createIcons(); // Re-run for newly added icons
+        const chatWindow = document.getElementById('chat-window');
+        const chatBubble = document.getElementById('chat-bubble');
+        const closeChatBtn = document.getElementById('close-chat');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+        let chatHistory = [];
+        chatBubble.addEventListener('click', () => chatWindow.classList.toggle('open'));
+        closeChatBtn.addEventListener('click', () => chatWindow.classList.remove('open'));
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userInput = chatInput.value.trim();
+            if (!userInput) return;
+            addMessage(userInput, 'user');
+            chatInput.value = '';
+            chatHistory.push({ role: 'user', parts: [{ text: userInput }] });
+            try {
+                const pre_prompt = "あなたは「ワンワン・フォレストキャンプ」の優秀なAIカスタマーサポートです。以下の情報を元に、フレンドリーかつ親切な口調で質問に答えてください。\n\n# キャンプ場情報\n- 名称: ワンワン・フォレストキャンプ\n- 場所: 和歌山県田辺市ワンワン123-4\n- 特徴: 愛犬と泊まれる。ドッグラン、ドッグフェンス付きサイト、犬用温水シャワー完備。\n- 料金: ドッグフェンスサイトは6000円から。コテージは18000円から。犬は1頭1000円。\n- 禁止事項: 花火、直火は禁止です。\n\n# 応答のルール\n- 必ずキャンプ場の名前を会話に含めてください。\n- 料金や予約に関する質問には、「正確な情報は公式サイトの料金ページをご確認いただくか、お電話でお問い合わせください」と付け加えてください。\n- 情報にない質問には、「申し訳ありませんが、その情報については分かりかねます。お電話でお問い合わせいただけますでしょうか。」と答えてください。\n";
+                const historyForApi = [{ role: "user", parts: [{ text: pre_prompt }] }, ...chatHistory];
+                const response = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ history: historyForApi })
+                });
+                if (!response.ok) { throw new Error("APIからの応答エラー"); }
+                const result = await response.json();
+                const aiResponse = result.candidates[0].content.parts[0].text;
+                addMessage(aiResponse, 'ai');
+                chatHistory.push({ role: 'model', parts: [{ text: aiResponse }] });
+            } catch (error) {
+                console.error("Chat API Error:", error);
+                addMessage("申し訳ありません、現在AIアシスタントが応答できません。しばらくしてから再度お試しください。", 'ai');
+            }
+        });
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${sender}-message`;
+            const p = document.createElement('p');
+            p.textContent = text;
+            messageDiv.appendChild(p);
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
+</body>
+</html>
